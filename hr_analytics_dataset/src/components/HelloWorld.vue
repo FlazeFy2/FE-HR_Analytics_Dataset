@@ -1,44 +1,33 @@
-<script setup>
-defineProps({
-  msg: {
-    type: String,
-    required: true,
-  },
-})
-</script>
-
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
-    </h3>
+    <A_TextComponent title="HR Analytic" />
+    <A_TextComponent second_title="About" />
+    <A_TextComponent content="The dataset offers a comprehensive view of consumer shopping trends, aiming to uncover patterns and behaviors in retail purchasing. It contains detailed transactional data across various product categories, customer demographics, and purchase channels"/>
+    <br><hr><br>
+    <a href="https://www.kaggle.com/datasets/hopesb/hr-analytics-dataset?select=Messy_HR_Dataset_Detailed.csv" target="_blank" rel="noopener">Kaggle</a>
+    <a href="https://github.com/FlazeFy2/DS-HR_Analytics_Dataset" target="_blank" rel="noopener">Jupiter Notebook</a>
   </div>
 </template>
 
+<script>
+    import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
+    
+    export default {
+        components: {
+            A_TextComponent
+        },
+        data() {}
+    }
+</script>
+
 <style scoped>
-h1 {
-  font-weight: 500;
-  font-size: 2.6rem;
-  position: relative;
-  top: -10px;
-}
-
-h3 {
-  font-size: 1.2rem;
-}
-
-.greetings h1,
-.greetings h3 {
-  text-align: center;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
+  a {
+    color: #42b883;
+    font-weight: 500;
+    font-size: 14px;
+    background-color:rgba(66, 184, 131, 0.25);
+    border-radius: 20px;
+    padding: 7px 12px;
+    margin-right: 6px;
   }
-}
 </style>
