@@ -20,6 +20,14 @@
   const series_race_comparison = ref([])
   const labels_marital_comparison = ref([])
   const series_marital_comparison = ref([])
+  const labels_performance_score_comparison = ref([])
+  const series_performance_score_comparison = ref([])
+  const labels_training_program_name_comparison = ref([])
+  const series_training_program_name_comparison = ref([])
+  const labels_training_type_comparison = ref([])
+  const series_training_type_comparison = ref([])
+  const labels_training_outcome_comparison = ref([])
+  const series_training_outcome_comparison = ref([])
 
   onMounted(async () => {
     const filePath = "/src/assets/Messy_HR_Dataset_Detailed.csv" 
@@ -31,6 +39,10 @@
       const data_division_raw = await readCsv(filePath,['Division'])
       const data_race_raw = await readCsv(filePath,['RaceDesc'])
       const data_marital_raw = await readCsv(filePath,['MaritalDesc'])
+      const data_performance_score_raw = await readCsv(filePath,['Performance Score'])
+      const data_training_program_name_raw = await readCsv(filePath,['Training Program Name'])
+      const data_training_type_raw = await readCsv(filePath,['Training Type'])
+      const data_training_outcome_raw = await readCsv(filePath,['Training Outcome'])
 
       // Exploratory Data Analysis (EDA) - Pie Chart Gender Comparison
       const gender_comparison = countWordFrequencies(data_gender_raw['GenderCode'])
@@ -66,6 +78,26 @@
       const marital_comparison = countWordFrequencies(data_marital_raw['MaritalDesc'])
       labels_marital_comparison.value = Object.keys(marital_comparison)
       series_marital_comparison.value = Object.values(marital_comparison)
+
+      // Exploratory Data Analysis (EDA) - Pie Chart Performance Score Comparison
+      const performance_score_comparison = countWordFrequencies(data_performance_score_raw['Performance Score'])
+      labels_performance_score_comparison.value = Object.keys(performance_score_comparison)
+      series_performance_score_comparison.value = Object.values(performance_score_comparison)
+
+      // Exploratory Data Analysis (EDA) - Pie Chart Training Program Name Comparison
+      const training_program_name_comparison = countWordFrequencies(data_training_program_name_raw['Training Program Name'])
+      labels_training_program_name_comparison.value = Object.keys(training_program_name_comparison)
+      series_training_program_name_comparison.value = Object.values(training_program_name_comparison)
+
+      // Exploratory Data Analysis (EDA) - Pie Chart Training Type Comparison
+      const training_type_comparison = countWordFrequencies(data_training_type_raw['Training Type'])
+      labels_training_type_comparison.value = Object.keys(training_type_comparison)
+      series_training_type_comparison.value = Object.values(training_type_comparison)
+
+      // Exploratory Data Analysis (EDA) - Pie Chart Training Outcome Comparison
+      const training_outcome_comparison = countWordFrequencies(data_training_outcome_raw['Training Outcome'])
+      labels_training_outcome_comparison.value = Object.keys(training_outcome_comparison)
+      series_training_outcome_comparison.value = Object.values(training_outcome_comparison)
     } catch (error) {
       console.error("Failed to load CSV:", error)
     }
@@ -161,6 +193,58 @@
       :labels="labels_marital_comparison" 
       second_title="Marital Status Comparison" 
       content="This show marital status comparison"
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <!-- Exploratory Data Analysis (EDA) - Pie Chart Performance Score Comparison  -->
+    <O_PieChartComponent 
+      :series="series_performance_score_comparison" 
+      :labels="labels_performance_score_comparison" 
+      second_title="Performance Score Comparison" 
+      content="This show performance comparison"
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <!-- Exploratory Data Analysis (EDA) - Pie Chart Training Program Name Comparison  -->
+    <O_PieChartComponent 
+      :series="series_training_program_name_comparison" 
+      :labels="labels_training_program_name_comparison" 
+      second_title="Training Program Name" 
+      content="This show training program name comparison"
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <!-- Exploratory Data Analysis (EDA) - Pie Chart Training Type Comparison  -->
+    <O_PieChartComponent 
+      :series="series_training_type_comparison" 
+      :labels="labels_training_type_comparison" 
+      second_title="Training Type" 
+      content="This show training type comparison"
+    />
+  </WelcomeItem>
+
+  <WelcomeItem>
+    <template #icon>
+      <DocumentationIcon />
+    </template>
+    <!-- Exploratory Data Analysis (EDA) - Pie Chart Training Outcome Comparison  -->
+    <O_PieChartComponent 
+      :series="series_training_outcome_comparison" 
+      :labels="labels_training_outcome_comparison" 
+      second_title="Training Outcome" 
+      content="This show training outcome comparison"
     />
   </WelcomeItem>
 </template>
