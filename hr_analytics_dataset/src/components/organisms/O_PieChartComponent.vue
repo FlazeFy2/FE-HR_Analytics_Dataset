@@ -1,9 +1,18 @@
 <template>
-    <A_TextComponent :second_title="second_title" />
-    <div id="chart">
-        <apexchart type="pie" :options="chartOptions" :series="series"></apexchart>
+    <div class="card">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div id="chart">
+                    <apexchart type="pie" :options="chartOptions" :series="series"></apexchart>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <A_TextComponent :second_title="second_title" />
+                <hr>
+                <A_TextComponent :content="content" />
+            </div>
+        </div>
     </div>
-    <A_TextComponent :content="content" />
 </template>
   
 <script>
@@ -35,26 +44,26 @@
         },
         computed: {
             chartOptions() {
-            return {
-                chart: {
-                    width: 380,
-                    type: "pie"
-                },
-                labels: this.labels,
-                responsive: [
-                {
-                    breakpoint: 480,
-                    options: {
-                        chart: {
-                            width: 200
-                        },
-                        legend: {
-                            position: "bottom"
+                return {
+                    chart: {
+                        width: 380,
+                        type: "pie"
+                    },
+                    labels: this.labels,
+                    legend: {
+                        position: "bottom"
+                    },
+                    responsive: [
+                        {
+                            breakpoint: 480,
+                            options: {
+                                chart: {
+                                    width: 200
+                                },
+                            }
                         }
-                    }
+                    ]
                 }
-                ]
-            }
             }
         }
     }

@@ -9,10 +9,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.5.13",
     "apexcharts": "^4.4.0",
+    "bootstrap": "^5.3.3",
     "papaparse": "^5.5.2",
     "tldts": "^6.1.71",
+    "vue": "^3.5.13",
+    "vue-good-table": "^2.21.11",
+    "vue-good-table-next": "^0.2.2",
     "vue3-apexcharts": "^1.8.0"
   },
   "devDependencies": {

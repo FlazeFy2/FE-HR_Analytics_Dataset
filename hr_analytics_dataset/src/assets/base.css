@@ -84,3 +84,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.card {
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;  
+  border: none !important;
+  border-radius: 20px !important;
+}
+
+.apexcharts-legend-text {
+  text-transform: capitalize !important;
+  font-size: 12.5px !important;
+}
+
+.apexcharts-legend {
+  background-color: #f7f7f7;
+  padding: 12px 8px !important;
+  border-radius: 16px;
+}
