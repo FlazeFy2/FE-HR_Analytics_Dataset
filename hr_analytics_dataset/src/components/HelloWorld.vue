@@ -4,6 +4,7 @@
   import O_TableComponent from "@/components/organisms/O_TableComponent.vue"
   import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
   import M_TotalBudgetTrainingLossBenefit from "@/components/molecules/M_TotalBudgetTrainingLossBenefit.vue"
+  import M_BestEmployeeAndLowestScore from "@/components/molecules/M_BestEmployeeAndLowestScore.vue"
 
   const header_dataset = ref([])
   const body_dataset = ref([])
@@ -49,6 +50,7 @@
     </div>
     <div class="collapse" id="collapseDescriptiveStats">
       <M_TotalBudgetTrainingLossBenefit/>
+      <M_BestEmployeeAndLowestScore/>
     </div>
     
     <hr>
