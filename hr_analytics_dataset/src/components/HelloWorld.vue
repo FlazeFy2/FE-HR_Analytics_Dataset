@@ -3,6 +3,7 @@
   import { readBody, readHeader } from "@/utils/data_prepare"
   import O_TableComponent from "@/components/organisms/O_TableComponent.vue"
   import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
+  import M_TotalBudgetTrainingLossBenefit from "@/components/molecules/M_TotalBudgetTrainingLossBenefit.vue"
 
   const header_dataset = ref([])
   const body_dataset = ref([])
@@ -40,6 +41,16 @@
     <A_TextComponent second_title="Source" />
     <a href="https://www.kaggle.com/datasets/hopesb/hr-analytics-dataset?select=Messy_HR_Dataset_Detailed.csv" target="_blank" rel="noopener">Kaggle</a>
     <a href="https://github.com/FlazeFy2/DS-HR_Analytics_Dataset" target="_blank" rel="noopener">Jupiter Notebook</a>
+    
+    <hr>
+    <div class="d-flex justify-content-between">
+      <A_TextComponent second_title="Descriptive Statistic" />
+      <button class="btn btn-link rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDescriptiveStats" aria-expanded="false" aria-controls="collapseExample">Show Content</button>
+    </div>
+    <div class="collapse" id="collapseDescriptiveStats">
+      <M_TotalBudgetTrainingLossBenefit/>
+    </div>
+    
     <hr>
     <A_TextComponent second_title="Dataset" />
     <O_TableComponent 

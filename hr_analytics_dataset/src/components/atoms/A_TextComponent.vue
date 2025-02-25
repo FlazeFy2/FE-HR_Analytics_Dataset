@@ -1,14 +1,16 @@
 <template>
-    <h1 v-if="title && !second_title && !content" class="text-lg font-bold mb-1">{{ title }}</h1>
-    <h3 v-if="second_title && !title && !content" class="text-lg font-bold mb-1">{{ second_title }}</h3>
-    <p v-else-if="content" class="mb-1 text-secondary">{{ content }}</p>
+    <h1 v-if="title && !second_title && !content && !third_title" class="mb-3" v-html="title"></h1>
+    <h3 v-if="second_title && !title && !content && !third_title" class="mb-2" v-html="second_title"></h3>
+    <h5 v-if="third_title && !title && !content && !second_title" class="mb-1" v-html="third_title"></h5>
+    <p v-else-if="content" class="mb-1 text-secondary" v-html="content"></p>
 </template>
   
 <script setup>
     defineProps({
         title: String,
         content: String,
-        second_title: String
+        second_title: String,
+        third_title: String
     })
 </script>
 
@@ -21,6 +23,10 @@
     h3 {
         font-weight: 500;
         font-size: 20px;
+    }
+    h5 {
+        font-weight: 500;
+        font-size: 17px;
     }
 </style>
   
