@@ -235,6 +235,46 @@
       count_col="Performance Score"
       group_col="DepartmentType"
     />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Training Outcome By Its Training Program -->
+    <TotalEmployeePerGroupAndContext
+      second_title="Total Employee Per Training Outcome By Its Training Program" 
+      content="This chart shows the total employee group by its training program and training outcome"
+      count_col="Training Program Name"
+      group_col="Training Outcome"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Training Type By Its Training Program -->
+    <TotalEmployeePerGroupAndContext
+      second_title="Total Employee Per Training Type By Its Training Program" 
+      content="This chart shows the total employee group by its training program and training type"
+      count_col="Training Program Name"
+      group_col="Training Type"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Department By Its Training Program -->
+    <TotalEmployeePerGroupAndContext
+      second_title="Total Employee Per Department By Its Training Program" 
+      content="This chart shows the total employee group by its training program and department"
+      count_col="Training Program Name"
+      group_col="DepartmentType"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Employee Type By Its Training Program -->
+    <TotalEmployeePerGroupAndContext
+      second_title="Total Employee Per Employee Type By Its Training Program" 
+      content="This chart shows the total employee group by its training program and employee type"
+      count_col="Training Program Name"
+      group_col="EmployeeType"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Performance Score By Its Marital Status -->
+    <TotalEmployeePerGroupAndContext
+      second_title="Total Employee Per Performance Score By Its Marital Status" 
+      content="This chart shows the total employee group by its marital status and performance score"
+      count_col="MaritalDesc"
+      group_col="Performance Score"
+    />
   </div>
 </template>
 

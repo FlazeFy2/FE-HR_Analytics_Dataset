@@ -53,7 +53,11 @@
                         }
                     },
                     xaxis: {
-                        categories: this.labels
+                        categories: this.labels,
+                        labels: this.labels.length > 4 ? {
+                            rotate: -25,
+                            rotateAlways: true
+                        } : {} 
                     },
                     legend: {
                         position: "bottom"
