@@ -5,6 +5,7 @@
   import O_PieChartComponent from "@/components/organisms/O_PieChartComponent.vue"
   import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
   import TotalEmployeePerGroupAndContext from "@/components/usecases/TotalEmployeePerGroupAndContext.vue"
+  import TotalEmployeePerGenGroupAndContext from "@/components/usecases/TotalEmployeePerGenGroupAndContext.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -274,6 +275,27 @@
       content="This chart shows the total employee group by its marital status and performance score"
       count_col="MaritalDesc"
       group_col="Performance Score"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Employee Type By Its Gen Group -->
+    <TotalEmployeePerGenGroupAndContext
+      second_title="Total Employee Per Employee Type By Its Gen Group" 
+      content="This chart shows the total employee group by its gen group and employee type"
+      count_col="EmployeeType"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Race By Its Gen Group -->
+    <TotalEmployeePerGenGroupAndContext
+      second_title="Total Employee Per Race By Its Gen Group" 
+      content="This chart shows the total employee group by its gen group and race"
+      count_col="RaceDesc"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Stacked Bar Chart Total Employee Per Marital Status By Its Gen Group -->
+    <TotalEmployeePerGenGroupAndContext
+      second_title="Total Employee Per Marital Status By Its Gen Group" 
+      content="This chart shows the total employee group by its gen group and marital status"
+      count_col="MaritalDesc"
     />
   </div>
 </template>
