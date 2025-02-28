@@ -1,20 +1,14 @@
 <template>
     <div class="card mb-4">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div id="chart">
-                    <apexchart type="pie" :options="chartOptions" :series="series"></apexchart>
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
-                <A_TextComponent :second_title="second_title" />
-                <hr>
-                <A_TextComponent :content="content" />
-            </div>
+        <div id="chart">
+            <apexchart type="bar" :options="chartOptions" :series="series"></apexchart>
         </div>
+        <A_TextComponent :second_title="second_title" />
+            <hr>
+        <A_TextComponent :content="content" />
     </div>
 </template>
-  
+
 <script>
     import VueApexCharts from "vue3-apexcharts"
     import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
@@ -46,33 +40,33 @@
             chartOptions() {
                 return {
                     chart: {
-                        width: 380,
-                        type: "pie"
+                        type: "bar",
+                        stacked: true,
+                        toolbar: {
+                            show: false
+                        }
                     },
-                    labels: this.labels,
+                    plotOptions: {
+                        bar: {
+                            horizontal: false,
+                            columnWidth: "50%"
+                        }
+                    },
+                    xaxis: {
+                        categories: this.labels
+                    },
                     legend: {
                         position: "bottom"
                     },
-                    responsive: [
-                        {
-                            breakpoint: 480,
-                            options: {
-                                chart: {
-                                    width: 200
-                                },
-                            }
-                        }
-                    ]
                 }
             }
         }
     }
 </script>
-  
+
 <style scoped>
     #chart {
-        max-width: 100%;
+        width: 100%;
         margin: auto;
     }
 </style>
-  
