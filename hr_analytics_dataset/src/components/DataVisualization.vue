@@ -3,6 +3,7 @@
   import { readCsv } from "@/utils/data_prepare"
   import { countWordFrequencies } from "@/utils/analyze"
   import O_PieChartComponent from "@/components/organisms/O_PieChartComponent.vue"
+  import O_TreeMapComponent from "@/components/organisms/O_TreeMapComponent.vue"
   import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
   import TotalEmployeePerGroupAndContext from "@/components/usecases/TotalEmployeePerGroupAndContext.vue"
   import TotalEmployeePerGenGroupAndContext from "@/components/usecases/TotalEmployeePerGenGroupAndContext.vue"
@@ -29,6 +30,9 @@
   const series_training_type_comparison = ref([])
   const labels_training_outcome_comparison = ref([])
   const series_training_outcome_comparison = ref([])
+  const series_title_tree = ref([])
+  const series_division_tree = ref([])
+  const series_state_tree = ref([])
 
   onMounted(async () => {
     const filePath = "/src/assets/Messy_HR_Dataset_Detailed.csv" 
@@ -44,6 +48,7 @@
       const data_training_program_name_raw = await readCsv(filePath,['Training Program Name'])
       const data_training_type_raw = await readCsv(filePath,['Training Type'])
       const data_training_outcome_raw = await readCsv(filePath,['Training Outcome'])
+      const data_state_raw = await readCsv(filePath,['State'])
 
       // Exploratory Data Analysis (EDA) - Pie Chart Gender Comparison
       const gender_comparison = countWordFrequencies(data_gender_raw['GenderCode'])
@@ -99,6 +104,39 @@
       const training_outcome_comparison = countWordFrequencies(data_training_outcome_raw['Training Outcome'])
       labels_training_outcome_comparison.value = Object.keys(training_outcome_comparison)
       series_training_outcome_comparison.value = Object.values(training_outcome_comparison)
+
+      // Exploratory Data Analysis (EDA) - Tree Map 20 Most Title
+      const most_title_tree = countWordFrequencies(data_title_raw['Title'],20)
+      series_title_tree.value = [
+        {
+          data: Object.entries(most_title_tree).map(([key, value]) => ({
+            x: key,
+            y: value
+          }))
+        }
+      ]
+
+      // Exploratory Data Analysis (EDA) - Tree Map 20 Most Title
+      const most_division_tree = countWordFrequencies(data_division_raw['Division'],20)
+      series_division_tree.value = [
+        {
+          data: Object.entries(most_division_tree).map(([key, value]) => ({
+            x: key,
+            y: value
+          }))
+        }
+      ]
+
+      // Exploratory Data Analysis (EDA) - Tree Map State Comparison
+      const most_state_tree = countWordFrequencies(data_state_raw['State'],20)
+      series_state_tree.value = [
+        {
+          data: Object.entries(most_state_tree).map(([key, value]) => ({
+            x: key,
+            y: value
+          }))
+        }
+      ]
     } catch (error) {
       console.error("Failed to load CSV:", error)
     }
@@ -296,6 +334,33 @@
       second_title="Total Employee Per Marital Status By Its Gen Group" 
       content="This chart shows the total employee group by its gen group and marital status"
       count_col="MaritalDesc"
+    />
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <A_TextComponent second_title="Tree Map" />
+    <button class="btn btn-link rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTreeStats" aria-expanded="false" aria-controls="collapseExample">Show Content</button>
+  </div>
+  <div class="collapse ps-3" id="collapseTreeStats">
+    <!-- Exploratory Data Analysis (EDA) - Tree Map Most 20 Title -->
+    <O_TreeMapComponent 
+      :series="series_title_tree" 
+      second_title="20 Most Title" 
+      content="This show 20 most title in the company"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Tree Map Most 20 Division -->
+    <O_TreeMapComponent 
+      :series="series_division_tree" 
+      second_title="20 Most Divison" 
+      content="This show 20 most division in company"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Tree Map Most 20 State -->
+    <O_TreeMapComponent 
+      :series="series_state_tree" 
+      second_title="20 Most State" 
+      content="This show 20 most state in company"
     />
   </div>
 </template>
