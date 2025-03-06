@@ -7,6 +7,7 @@
   import A_TextComponent from "@/components/atoms/A_TextComponent.vue"
   import TotalEmployeePerGroupAndContext from "@/components/usecases/TotalEmployeePerGroupAndContext.vue"
   import TotalEmployeePerGenGroupAndContext from "@/components/usecases/TotalEmployeePerGenGroupAndContext.vue"
+  import EmployeeJoinedSemester from "./usecases/EmployeeJoinedSemester.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -362,6 +363,15 @@
       second_title="20 Most State" 
       content="This show 20 most state in company"
     />
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <A_TextComponent second_title="Line Chart" />
+    <button class="btn btn-link rounded-pill" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLineChart" aria-expanded="false" aria-controls="collapseExample">Show Content</button>
+  </div>
+  <div class="collapse ps-3" id="collapseLineChart">
+    <!-- Exploratory Data Analysis (EDA) - Total Employee Join By Semester -->
+    <EmployeeJoinedSemester/>
   </div>
 </template>
 
