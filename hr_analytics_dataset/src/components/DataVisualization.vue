@@ -8,6 +8,7 @@
   import TotalEmployeePerGroupAndContext from "@/components/usecases/TotalEmployeePerGroupAndContext.vue"
   import TotalEmployeePerGenGroupAndContext from "@/components/usecases/TotalEmployeePerGenGroupAndContext.vue"
   import EmployeeJoinedSemester from "./usecases/EmployeeJoinedSemester.vue"
+import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -371,7 +372,16 @@
   </div>
   <div class="collapse ps-3" id="collapseLineChart">
     <!-- Exploratory Data Analysis (EDA) - Total Employee Join By Semester -->
-    <EmployeeJoinedSemester/>
+    <EmployeeJoinedSemester
+      second_title="Total Employee Join By Semester" 
+      content="This show total employee joined in company by semester"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Total Employee Exit By Semester -->
+    <EmployeeExitSemester
+      second_title="Total Employee Exit By Semester" 
+      content="This show total employee exit from company by semester"
+    />
   </div>
 </template>
 

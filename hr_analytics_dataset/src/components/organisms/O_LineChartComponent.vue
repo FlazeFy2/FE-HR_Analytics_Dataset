@@ -39,7 +39,10 @@
                 return {
                     chart: {
                         type: "line",
-                        height: 350
+                        height: 350,
+                        toolbar: {
+                            show: false
+                        }
                     },
                     xaxis: {
                         categories: this.labels 
@@ -51,7 +54,7 @@
                         size: 5
                     },
                     legend: {
-                        position: "bottom"
+                        show: false
                     },
                     responsive: [
                         {

@@ -13,9 +13,10 @@
     onMounted(async () => {
         const filePath = "/src/assets/Messy_HR_Dataset_Detailed.csv"
         try {
-            const data_raw = await readCsv(filePath, ['StartDate'])
+            const data_raw = await readCsv(filePath, ['ExitDate'])
         
-            const dates = data_raw['StartDate'].filter(date => date).map(date => new Date(date))
+            const dates = data_raw['ExitDate'].filter(date => date !== null && date !== undefined && date.trim() !== "").map(date => new Date(date))
+            console.log(dates)
             if (dates.length === 0) {
                 throw new Error("No valid dates found in CSV")
             }
