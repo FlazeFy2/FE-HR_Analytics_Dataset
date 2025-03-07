@@ -10,6 +10,7 @@
   import EmployeeJoinedSemester from "./usecases/EmployeeJoinedSemester.vue"
   import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
   import EmployeeGeneration from "./usecases/EmployeeGeneration.vue"
+import EmployeeSurverDateQuartal from "./usecases/EmployeeSurverDateQuartal.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -388,6 +389,12 @@
     <EmployeeGeneration
       second_title="Total Employee By Generation" 
       content="This show total employee by generation born"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Total Employee By Survey Date -->
+    <EmployeeSurverDateQuartal
+      second_title="Total Employee By Survey Date" 
+      content="This show total employee by survey date"
     />
   </div>
 </template>
