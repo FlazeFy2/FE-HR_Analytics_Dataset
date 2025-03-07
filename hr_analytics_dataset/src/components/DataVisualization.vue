@@ -8,7 +8,8 @@
   import TotalEmployeePerGroupAndContext from "@/components/usecases/TotalEmployeePerGroupAndContext.vue"
   import TotalEmployeePerGenGroupAndContext from "@/components/usecases/TotalEmployeePerGenGroupAndContext.vue"
   import EmployeeJoinedSemester from "./usecases/EmployeeJoinedSemester.vue"
-import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
+  import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
+  import EmployeeGeneration from "./usecases/EmployeeGeneration.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -381,6 +382,12 @@ import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
     <EmployeeExitSemester
       second_title="Total Employee Exit By Semester" 
       content="This show total employee exit from company by semester"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Total Employee By Generation -->
+    <EmployeeGeneration
+      second_title="Total Employee By Generation" 
+      content="This show total employee by generation born"
     />
   </div>
 </template>
