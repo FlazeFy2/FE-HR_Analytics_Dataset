@@ -10,7 +10,8 @@
   import EmployeeJoinedSemester from "./usecases/EmployeeJoinedSemester.vue"
   import EmployeeExitSemester from "./usecases/EmployeeExitSemester.vue"
   import EmployeeGeneration from "./usecases/EmployeeGeneration.vue"
-import EmployeeSurverDateQuartal from "./usecases/EmployeeSurverDateQuartal.vue"
+  import EmployeeSurverDateQuartal from "./usecases/EmployeeSurverDateQuartal.vue"
+  import TotalEmployeeByTrainingDayStart from "./usecases/TotalEmployeeByTrainingDayStart.vue"
 
   const labels_title = ref([])
   const series_title = ref([])
@@ -338,6 +339,12 @@ import EmployeeSurverDateQuartal from "./usecases/EmployeeSurverDateQuartal.vue"
       second_title="Total Employee Per Marital Status By Its Gen Group" 
       content="This chart shows the total employee group by its gen group and marital status"
       count_col="MaritalDesc"
+    />
+
+    <!-- Exploratory Data Analysis (EDA) - Bar Chart Total Employee By Training Start Day -->
+    <TotalEmployeeByTrainingDayStart
+      second_title="Total Employee By Training Start Day" 
+      content="This chart shows the total employee by training start day"
     />
   </div>
 
